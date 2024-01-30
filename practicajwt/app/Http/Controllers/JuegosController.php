@@ -60,7 +60,7 @@ class JuegosController extends Controller
             'precio' => 'required | numeric',
             'desarrollador' => 'required | string',
         ]);
-        $juego = new Juego();
+        $juego = Juego::find($request->id);
         $juego->nombre = $request->nombre;
         $juego->description = $request->description;
         $juego->precio = $request->precio;

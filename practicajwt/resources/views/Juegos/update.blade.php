@@ -7,6 +7,11 @@
     @csrf
     @method('PUT')
 
+
+    <div class="mb-3">
+        <label for="Id" class="form-label">Id del juego</label>
+        <input type="text" class="form-control" id="ID" name="id" value="{{ $juego->id }}" readonly>
+    </div>
     <div class="mb-3">
         <label for="Nombre" class="form-label">Nombre del Juego</label>
         <input type="text" class="form-control" id="Nombre" name="nombre" value="{{ $juego->nombre }}">
