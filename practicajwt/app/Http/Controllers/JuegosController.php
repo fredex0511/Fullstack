@@ -31,11 +31,10 @@ class JuegosController extends Controller
     
         $juego = new Juego();
 
-        $juego->nombre = request('nombre');
-        $juego->description = request('description');
-        $juego->precio = request('precio');
-        $juego->desarrollador = request('desarrollador');
-
+        $juego->nombre = $request->nombre;
+        $juego->description = $request->description;
+        $juego->precio = $request->precio;
+        $juego->desarrollador = $request->desarrollador;
         $juego->save();
 
         return redirect()->route('juegos.index');
@@ -53,19 +52,19 @@ class JuegosController extends Controller
         return view('juegos.update', ['juego' => $juego]);
     }
 
-    public function updateitem(Juego $juego, Request $request)
+    public function updateitem( Request $request)
     {
         $validador = $request->validate([
             'nombre' => 'required| string',
             'description' => 'required | string',
-            'precio' => 'required | number',
+            'precio' => 'required | numeric',
             'desarrollador' => 'required | string',
         ]);
-
-        $juego->nombre = request('nombre');
-        $juego->description = request('description');
-        $juego->precio = request('precio');
-        $juego->desarrollador = request('desarrollador');
+        $juego = new Juego();
+        $juego->nombre = $request->nombre;
+        $juego->description = $request->description;
+        $juego->precio = $request->precio;
+        $juego->desarrollador = $request->desarrollador;
 
         $juego->save();
 
